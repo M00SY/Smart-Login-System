@@ -1,4 +1,4 @@
-document.getElementById('signupButton').addEventListener('click', signUp);
+document.getElementById("signupButton").addEventListener('click', signUp);
 
 function isEmpty() {
     var name = document.getElementById('signupName').value.trim();
@@ -17,7 +17,8 @@ function isEmailExist(email) {
     return signUpArray.some(user => user.email === email);
 }
 
-function signUp() {
+function signUp(event) {
+    event.preventDefault();  // Prevent form submission
     var name = document.getElementById('signupName').value.trim();
     var email = document.getElementById('signupEmail').value.trim();
     var password = document.getElementById('signupPassword').value.trim();
@@ -54,32 +55,14 @@ function signUp() {
 document.getElementById('signupForm').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault(); 
-        console.log('Enter key pressed');
-        signUp();
+        signUp(event);
     }
 });
-
 
 document.getElementById('signupName').addEventListener('keyup', function(event) {
-    console.log('Key up in Name input');
     if (event.key === 'Enter') {
-        console.log('Enter key in Name input');
-        signUp();
+        signUp(event);
     }
 });
 
-document.getElementById('signupEmail').addEventListener('keyup', function(event) {
-    console.log('Key up in Email input');
-    if (event.key === 'Enter') {
-        console.log('Enter key in Email input');
-        signUp();
-    }
-});
-
-document.getElementById('signupPassword').addEventListener('keyup', function(event) {
-    console.log('Key up in Password input');
-    if (event.key === 'Enter') {
-        console.log('Enter key in Password input');
-        signUp();
-    }
-});
+document.getElementById('signupEmail').addEvent
